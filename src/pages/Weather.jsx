@@ -9,7 +9,6 @@ import Shine from "../assets/Weather/Shine.png";
 import Cloud from "../assets/Weather/Cloud.png";
 import Storm from "../assets/Weather/Storm.png";
 import LocationImage from "../assets/Location.png";
-
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 const Weather = () => {
@@ -118,7 +117,7 @@ const Weather = () => {
 
       {/* Weather Data */}
       {!loading && weatherData && (
-        <div className="w-full flex flex-col xl:flex-row gap-16">
+        <div className="w-full flex flex-col xl:flex-row gap-10">
           <div className="w-full xl:w-1/2 xl:h-full flex flex-col gap-8 items-center justify-between">
             {/* Weather Overview */}
             <div className="w-full p-4 xl:p-6 rounded-xl text-blue-800 bg-blue-100 flex flex-col gap-8 xl:gap-16">
@@ -167,7 +166,7 @@ const Weather = () => {
               </span>
 
               <div className="w-full relative">
-                <div className="flex gap-6 xl:gap-12 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-blue-100">
+                <div className="flex gap-6 xl:gap-12 overflow-x-auto pb-4 scrollbar-thin">
                   {forecastDays?.[0]?.hour.map((hour, idx) => (
                     <div
                       key={idx}
