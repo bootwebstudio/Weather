@@ -10,7 +10,7 @@ import Cloud from "../assets/Weather/Cloud.png";
 import Storm from "../assets/Weather/Storm.png";
 import LocationImage from "../assets/Location.png";
 
-const API_KEY = "7c4cc4773a9f4d198b420252250306";
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 const Weather = () => {
   const [location, setLocation] = useState(null);
@@ -42,30 +42,6 @@ const Weather = () => {
     } finally {
       setLoading(false);
     }
-  };
-
-  const getWeatherBgColor = (condition) => {
-    const text = condition.toLowerCase();
-
-    if (text.includes("sunny") || text.includes("clear")) {
-      return "bg-gradient-to-br from-yellow-100 to-yellow-300"; // Sunny
-    }
-    if (text.includes("rain")) {
-      return "bg-gradient-to-br from-blue-100 to-blue-300"; // Rain
-    }
-    if (text.includes("snow")) {
-      return "bg-gradient-to-br from-blue-50 to-blue-100"; // Snow
-    }
-    if (text.includes("storm") || text.includes("thunder")) {
-      return "bg-gradient-to-br from-gray-300 to-gray-500"; // Storm
-    }
-    if (text.includes("cloud")) {
-      return "bg-gradient-to-br from-gray-100 to-gray-300"; // Cloudy
-    }
-    if (text.includes("fog") || text.includes("mist")) {
-      return "bg-gradient-to-br from-gray-100 to-gray-200"; // Fog/Mist
-    }
-    return "bg-gradient-to-br from-blue-100 to-blue-200"; // Default
   };
 
   const fetchWeatherByCity = async (city) => {
